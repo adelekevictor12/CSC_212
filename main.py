@@ -5,10 +5,20 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
+def get_file(url):
+    try:
+        path = kagglehub.dataset_download(url)
+        print("Path to datasets files: ",path)
+        return path
+    except Exception as e:
+        print("Exception: ",e)
+        raise 
+url = "srinivasav22/sales-transactions-dataset"
+get_file(url)
 # Download latest version
-path = kagglehub.dataset_download("srinivasav22/sales-transactions-dataset")
+#path = kagglehub.dataset_download("srinivasav22/sales-transactions-dataset")
 
-print("Path to dataset files:", path)
+#print("Path to dataset files:", path)
 
 # Check and list files in the dataset directory
 if os.path.exists(path):
